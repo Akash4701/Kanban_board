@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
-    "jsx": "react",
-    // ...
+    "jsx": "react-jsx",                           // Use the modern JSX transform (important for React 17+)
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,                     // Fixes "can only be default-imported" errors
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,                        // Prevents type errors in node_modules
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
-    // ...
-  }
+  },
+  "include": ["src"]
 }
