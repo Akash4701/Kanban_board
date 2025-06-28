@@ -1,69 +1,80 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📝 Kanban Board with Filtering
 
-Currently, two official plugins are available:
+A simple and interactive **Kanban board** built with **React**, **Tailwind CSS**, and **Dnd-kit**, supporting:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* 🧩 Drag and drop of cards between lanes
+* 🔍 Filtering by priority and assignee
+* 🗂️ Dynamic lane and card creation
+* 🎯 User-friendly UI with clear structure and flow
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ✨ Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* ✅ **Add/Remove Lanes**
+* ✅ **Add/Remove Cards**
+* ✅ **Filter by Priority (High, Medium, Low)**
+* ✅ **Filter by Assignee**
+* ✅ **Deadline Picker for Tasks**
+* ✅ **Responsive, Clean UI with Tailwind CSS**
+* ✅ **Drag-and-Drop Support with dnd-kit**
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🛠️ Tech Stack
+
+| Tech               | Purpose                      |
+| ------------------ | ---------------------------- |
+| React              | Frontend Framework           |
+| TypeScript         | Type safety                  |
+| Tailwind CSS       | UI styling                   |
+| Dnd-kit            | Drag and Drop functionality  |
+| react-datepicker   | Date selection in cards      |
+| react-multi-select | Multi-select user assignment |
+| Lucide-react       | Iconography                  |
+
+---
+
+### 📸 Preview
+
+> *Here's what the board looks like (screenshot placeholder)*
+> ![Kanban Preview](https://via.placeholder.com/600x300.png?text=Kanban+Board+Preview)
+
+---
+
+### 🚀 Getting Started
+
+#### 📦 Prerequisites
+
+* Node.js (v16+)
+* npm / yarn
+
+#### 🔧 Installation
+
+```bash
+git clone https://github.com/your-username/kanban-board.git
+cd kanban-board
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open your browser and navigate to:
+`http://localhost:5173` (or appropriate port)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+ 📂 Project Structure
+
+```bash
+src/
+│
+├── components/
+│   ├── drag.tsx         # Draggable card component
+│   ├── drop.tsx         # Droppable lane area
+│
+├── App.tsx              # Main application
+├── App.css              # Tailwind + custom styles
+├── main.tsx             # Entry point
+└── ...
+
