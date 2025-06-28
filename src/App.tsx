@@ -33,7 +33,7 @@ function App() {
   const [title, setTitle] = useState("");
   const [isCardFormVisible, setisCardVisible] = useState({
     visible: false,
-    laneId: 0,
+    laneId: "",
   });
   const [newCard, setnewCard] = useState({
     title: "",
@@ -89,7 +89,7 @@ function App() {
       })
     );
     setnewCard({ title: "", Users: [], deadline: new Date(),priority:"" });
-    setisCardVisible({ visible: false, laneId: 0 });
+    setisCardVisible({ visible: false, laneId: "" });
   };
   function handleDragEnd(event: any) {
   const { active, over } = event;
