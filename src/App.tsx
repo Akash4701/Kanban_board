@@ -73,9 +73,7 @@ function App() {
   const addCards = (LaneId: any) => {
     const newestCard={
       ...newCard,
-
       id:uuidv4(),
-      
     }
     setLanes(
       lanes.map((lane) => {
@@ -122,20 +120,20 @@ function App() {
 }
 type Checked = DropdownMenuCheckboxItemProps["checked"]
 
-  const [showusersfilter,setusersfilter]=useState([])
- const [showpriorityfilter,setshowpriorityfilter]=useState([])
+const [showusersfilter, setusersfilter] = useState<number[]>([]);
+const [showpriorityfilter, setshowpriorityfilter] = useState<string[]>([]);
 
 
 const handlestatuscheck=(p:string | Number,status:Boolean,type:string)=>{
   if(type=="priority"){
   if(status){
-    setshowpriorityfilter((prev)=>[...prev,p])
+    setshowpriorityfilter((prev)=>[...prev, String(p)])
   }else{
     setshowpriorityfilter((prev)=>prev.filter((item)=>item!==p))
   }
 }else{
    if(status){
-    setusersfilter((prev)=>[...prev,p])
+    setusersfilter((prev)=>[...prev,Number(p)])
   }else{
     setusersfilter((prev)=>prev.filter((item)=>item!==p))
   }
@@ -312,7 +310,7 @@ const handlestatuscheck=(p:string | Number,status:Boolean,type:string)=>{
                           (showpriorityfilter.length === 0 ||
                             showpriorityfilter.includes(card.priority)) &&
                           (showusersfilter.length === 0 ||
-                            card.Users?.some((element) =>
+                            card.Users?.some((element:any) =>
                               showusersfilter.includes(element.value)
                             ))
                       )
